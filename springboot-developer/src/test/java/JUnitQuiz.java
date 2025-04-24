@@ -42,7 +42,7 @@ public class JUnitQuiz {
         // number1은 number2보다 큰지 확인
         assertThat(number1).isGreaterThan(number2);
 
-        // number3은 number2보다 큰지 확인
+        // number3은 number2보다 작은지 확인
         assertThat(number3).isLessThan(number2);
     }
 }
