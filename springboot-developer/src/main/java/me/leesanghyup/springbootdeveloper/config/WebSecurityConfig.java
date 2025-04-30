@@ -40,10 +40,10 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth // 인증, 인가 설정
                         .requestMatchers(
                                 new AntPathRequestMatcher("/login"),
-                                new AntPathRequestMatcher("/spring"),
+                                new AntPathRequestMatcher("/signup"),
                                 new AntPathRequestMatcher("/user")
                         ).permitAll()
-                        .anyRequest().authenticated().dispatcherTypeMatchers())
+                        .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin // 폼 기반 로그인 설정
                         .loginPage("/login")
                         .defaultSuccessUrl("/articles")
