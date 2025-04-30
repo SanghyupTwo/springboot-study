@@ -1,5 +1,6 @@
 package me.leesanghyup.springbootdeveloper.service;
 
+import com.sun.nio.sctp.IllegalReceiveException;
 import lombok.RequiredArgsConstructor;
 import me.leesanghyup.springbootdeveloper.domain.User;
 import me.leesanghyup.springbootdeveloper.dto.AddUserRequest;
@@ -22,5 +23,10 @@ public class UserService {
                 // 패스워드 암호화
                 .password(bCryptPasswordEncoder.encode(dto.getPassword()))
                 .build()).getId();
+    }
+
+    public User findById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalReceiveException("Unexpected user"));
     }
 }
